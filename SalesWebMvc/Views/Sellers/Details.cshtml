@@ -1,11 +1,9 @@
 ﻿@model SalesWebMvc.Models.Seller
 @{
-    ViewData["Title"] = "Apagar";
+    ViewData["Title"] = "Detalhes";
 }
 
 <h2>@ViewData["Title"]</h2>
-
-<h3>Tem certeza que quer apagar esse vendedor?</h3>
 
 <div>
     <h4>Vendedor</h4>
@@ -18,10 +16,11 @@
         <dd>@Html.DisplayFor(viewModel => viewModel.BirthDate)</dd>
         <dt>Salário Base</dt>
         <dd>@Html.DisplayFor(viewModel => viewModel.BaseSalary)</dd>
+        <dt>Departamento</dt>
+        <dd>@Html.DisplayFor(viewModel => viewModel.Department.Name)</dd>
     </dl>
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" />
-        <a asp-action="Index" class="btn btn-default">Voltar para a Lista</a>
-    </form>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id " class="btn btn-danger">Editar</a>
+    <a asp-action="Index" class="btn btn-default">Voltar para lista</a>
 </div>
