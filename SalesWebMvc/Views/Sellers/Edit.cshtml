@@ -1,16 +1,17 @@
 ﻿@model SalesWebMvc.Models.ViewModels.SellerFormViewModels
 
 @{
-    ViewData["Title"] = "Vendedores";
+    ViewData["Title"] = "Editar";
 }
 
 <h2>@ViewData["Title"]</h2>
 
-<h4>Adicionar Novo Vendedor</h4>
+<h4>Vendedor</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Seller.Id" />
             <div class="form-group">
                 <label asp-for="Seller.Name" class="control-label">Nome</label>
                 <input asp-for="Seller.Name" class="form-control" />
@@ -32,7 +33,7 @@
                 <select asp-for="Seller.DepartmentId" asp-items="@(new SelectList(Model.Departments,"Id", "Name"))" class="form-control"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Adicionar" class="btn btn-default" />
+                <input type="submit" value="Salvar" class="btn btn-default" />
             </div>
         </form>
     </div>
